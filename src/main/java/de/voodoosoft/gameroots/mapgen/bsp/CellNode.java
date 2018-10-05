@@ -1,7 +1,7 @@
 package de.voodoosoft.gameroots.mapgen.bsp;
 
 
-import de.voodoosoft.de.voodoosoft.gameroots.shared.geom.IntRect;
+import de.voodoosoft.gameroots.shared.geom.IntRect;
 
 
 

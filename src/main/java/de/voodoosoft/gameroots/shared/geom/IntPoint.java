@@ -1,4 +1,4 @@
-package de.voodoosoft.de.voodoosoft.gameroots.shared.geom;
+package de.voodoosoft.gameroots.shared.geom;
 
 public class IntPoint {
 	public int x, y;
