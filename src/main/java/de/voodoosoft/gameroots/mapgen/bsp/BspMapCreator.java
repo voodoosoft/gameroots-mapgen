@@ -368,7 +368,7 @@ public class BspMapCreator implements CharLevelMapCreator {
 		for (int y = 0; y < mapHeight; y++) {
 			for (int x = 0; x < mapWidth; x++) {
 				if (map[y][x] == TileChar.charVoid) {
-					map[y][x] = TileChar.charFloor;
+					map[y][x] = TileChar.charOuterFloor;
 				}
 			}
 		}

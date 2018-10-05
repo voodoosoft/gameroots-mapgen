@@ -8,6 +8,7 @@ public class TileChar {
 	public static char charRoomFloor = ',';
 	public static char charFloor = '.';
 	public static char charTemp = 'T';
+	public static char charOuterFloor = '~';
 
 	public static char charWall = '#';
 

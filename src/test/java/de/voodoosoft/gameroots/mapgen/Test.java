@@ -8,8 +8,8 @@ public class Test {
 	public static void main(String[] args) {
 		BspMapCreator bspMapCreator = new BspMapCreator();
 		bspMapCreator.setMinRoomSize(5);
-		bspMapCreator.setMaxIterations(8);
-		bspMapCreator.setMapDimension(150, 100);
+		bspMapCreator.setMaxIterations(6);
+		bspMapCreator.setMapDimension(100, 60);
 		bspMapCreator.setOut(System.out);
 		bspMapCreator.createMap();
 	}
