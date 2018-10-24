@@ -10,4 +10,6 @@ public interface CharLevelMapCreator {
 	char[][] createMap();
 
 	Map<IntPoint, Integer> getRoomsByTile();
+
+	void processRooms(RoomCallback roomCallback);
 }

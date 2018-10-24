@@ -1,6 +1,7 @@
 package de.voodoosoft.gameroots.mapgen.bsp;
 
 
+import de.voodoosoft.gameroots.mapgen.RoomCallback;
 import de.voodoosoft.gameroots.shared.geom.IntPoint;
 import de.voodoosoft.gameroots.shared.geom.IntRect;
 import de.voodoosoft.gameroots.mapgen.CharLevelMapCreator;
@@ -124,6 +125,10 @@ public class BspMapCreator implements CharLevelMapCreator {
 	@Override
 	public Map<IntPoint, Integer> getRoomsByTile() {
 		return roomsByTile;
+	}
+
+	@Override
+	public void processRooms(RoomCallback roomCallback) {
 	}
 
 	private void splitCell(CellNode parent, int maxDepth) {
