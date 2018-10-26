@@ -78,6 +78,33 @@ public class IntRect {
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		IntRect intRect = (IntRect)o;
+
+		if (x != intRect.x)
+			return false;
+		if (y != intRect.y)
+			return false;
+		if (width != intRect.width)
+			return false;
+		return height == intRect.height;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = x;
+		result = 31 * result + y;
+		result = 31 * result + width;
+		result = 31 * result + height;
+		return result;
+	}
+
+	@Override
 	public String toString() {
 		return x + ":" + y + ":" + width + ":" + height;
 	}

@@ -1,14 +1,14 @@
 package de.voodoosoft.gameroots.mapgen.bsp;
 
 
-import de.voodoosoft.gameroots.mapgen.RoomCallback;
-import de.voodoosoft.gameroots.shared.geom.IntPoint;
-import de.voodoosoft.gameroots.shared.geom.IntRect;
 import de.voodoosoft.gameroots.mapgen.CharLevelMapCreator;
 import de.voodoosoft.gameroots.mapgen.TileChar;
+import de.voodoosoft.gameroots.shared.geom.IntPoint;
+import de.voodoosoft.gameroots.shared.geom.IntRect;
 
 import java.io.PrintStream;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 /**
  * Dungeon generator using a BSP tree.
  */
-public class BspMapCreator implements CharLevelMapCreator {
+public class BspMapCreator implements CharLevelMapCreator<Consumer> {
 	private static final Logger log = Logger.getLogger(BspMapCreator.class.getName());
 
 	static Random rnd = new Random();
@@ -29,6 +29,7 @@ public class BspMapCreator implements CharLevelMapCreator {
 	private int minRoomSize;
 	private Map<IntPoint, Integer> roomsByTile;
 	private List<IntRect> rooms;
+	private Map<Integer, IntRect> roomsByNumber;
 	private long seed;
 	private PrintStream out;
 
@@ -40,6 +41,7 @@ public class BspMapCreator implements CharLevelMapCreator {
 
 	public BspMapCreator() {
 		roomsByTile = new HashMap<>();
+		roomsByNumber = new HashMap<>();
 		rooms = new ArrayList<>();
 	}
 
@@ -105,6 +107,7 @@ public class BspMapCreator implements CharLevelMapCreator {
 		// and collect rooms by tile
 		for (int i = 0; i < rooms.size(); i++) {
 			IntRect room = rooms.get(i);
+			roomsByNumber.put(i, room);
 			floodFill(map, room, i);
 		}
 
@@ -128,7 +131,7 @@ public class BspMapCreator implements CharLevelMapCreator {
 	}
 
 	@Override
-	public void processRooms(RoomCallback roomCallback) {
+	public void processRooms(Consumer roomCallback) {
 	}
 
 	private void splitCell(CellNode parent, int maxDepth) {
