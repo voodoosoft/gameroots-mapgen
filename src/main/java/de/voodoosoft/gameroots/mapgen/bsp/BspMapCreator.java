@@ -130,6 +130,10 @@ public class BspMapCreator implements CharLevelMapCreator<Consumer> {
 		return roomsByTile;
 	}
 
+	public List<IntRect> getRooms() {
+		return rooms;
+	}
+
 	@Override
 	public void processRooms(Consumer roomCallback) {
 	}
@@ -166,7 +170,7 @@ public class BspMapCreator implements CharLevelMapCreator<Consumer> {
 		if (node.left == null && node.right == null) {
 			int maxRoomWidth = node.width - (2 * roomPad);
 			int maxRoomHeight = node.height - (2 * roomPad);
-			if (maxRoomWidth >= minRoomSize && maxRoomHeight >= minRoomSize) {
+			if (maxRoomWidth > minRoomSize && maxRoomHeight > minRoomSize) {
 				int roomWidth = minRoomSize + rnd.nextInt(maxRoomWidth - minRoomSize);
 				int roomHeight = minRoomSize + rnd.nextInt(maxRoomHeight - minRoomSize);
 
