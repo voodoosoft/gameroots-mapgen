@@ -11,3 +11,7 @@ repositories {
 
 dependencies {
 }
+
+jar {
+    archiveName="gameroots-mapgen.jar"
+}
